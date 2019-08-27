@@ -57,6 +57,14 @@
 (global-flycheck-mode)
 ;; Org-Mode
 (use-package org)
+(setq org-log-done 'time)
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "DOING(d)" "POSTPONED(p)" "BLOCKED(b)" "|" "DONE(o)" "CANCELED(c)")))
+(global-set-key (kbd "C-c a") 'org-agenda)
+(define-key global-map (kbd "C-c c") 'org-capture)
+(setq org-capture-templates
+      '(("t" "Todo" entry (file "~/todo.org")
+         "* TODO %?")))
 
 ;; Theme
 (load-theme 'gruvbox t)
